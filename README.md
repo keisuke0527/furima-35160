@@ -8,8 +8,9 @@
 | ------------------ | ------ | ----------- |
 | nick_name          | string | null: false |
 | email              | string | null: false |
-| password           | string | null: false |
-| name               | string | null: false |
+| encrypted_password | string | null: false |
+| last_name          | string | null: false |
+| first_name         | string | null: false |
 | name_kana          | string | null: false |
 | birthday           | string | null: false |
 
@@ -23,16 +24,15 @@
 
 | Column       | Type       | Options            |
 | ---------    | ---------- | -----------        |
-| image        |            |                    |
 | item_name    | string     | null: false        |
 | description  | string     | null: false        |
-| category     | string     | null: false        |
-| status       | string     | null: false        |
-| charges      | string     | null: false        |
-| area         | string     | null: false        |
-| days         | string     | null: false        |
+| item_id      | integer    | null: false        |
+| item_id      | integer    | null: false        |
+| item_id      | integer    | null: false        |
+| item_id      | integer    | null: false        |
+| item_id      | integer    | null: false        |
 | price        | string     | null: false        |
-| user_id      | references | foreign_key: true  |
+| user         | references | foreign_key: true  |
 
 ### Association
 
@@ -41,10 +41,10 @@
 
 ## order テーブル -----------------------------------------
 
-| Column                | Type       | Options            |
-| ------------------    | ---------- | -----------        |
-| user_id               | references | foreign_key: true  |
-| item_id               | references | foreign_key: true  |
+| Column             | Type       | Options            |
+| ------------------ | ---------- | -----------        |
+| user               | references | foreign_key: true  |
+| item               | references | foreign_key: true  |
 
 
 ### Association
@@ -62,9 +62,9 @@
 | address            | string     | null: false        |
 | phone_number       | string     | null: false        |
 | building_name      | string     |                    |
-| user_id            | references | foreign_key: true  |
-| item_id            | references | foreign_key: true  |
-| order_id            | references | foreign_key: true  |
+| user               | references | foreign_key: true  |
+| item               | references | foreign_key: true  |
+| order              | references | foreign_key: true  |
 
 ### Association
 
