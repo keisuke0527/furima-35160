@@ -39,7 +39,7 @@
 - belongs_to :user
 - has_one  :order
 
-## order テーブル -----------------------------------------
+## orders テーブル -----------------------------------------
 
 | Column             | Type       | Options            |
 | ------------------ | ---------- | -----------        |
@@ -51,6 +51,7 @@
 
 - belongs_to :user
 - belongs_to :item
+- has_one  :residences
 
 ## residencesテーブル -----------------------------------------
 
@@ -62,12 +63,8 @@
 | address            | string     | null: false        |
 | phone_number       | string     | null: false        |
 | building_name      | string     |                    |
-| user               | references | foreign_key: true  |
-| item               | references | foreign_key: true  |
 | order              | references | foreign_key: true  |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
 - belongs_to :order
