@@ -23,17 +23,17 @@
 
 ## items テーブル -----------------------------------------
 
-| Column       | Type       | Options            |
-| ---------    | ---------- | -----------        |
-| item_name    | string     | null: false        |
-| description  | text       | null: false        |
-| category_id  | integer    | null: false        |
-| status_id    | integer    | null: false        |
-| charges_id   | integer    | null: false        |
-| area_id      | integer    | null: false        |
-| days_id      | integer    | null: false        |
-| price        | integer     | null: false       |
-| user         | references | foreign_key: true  |
+| Column               | Type       | Options            |
+| -------------------- | ---------- | -----------        |
+| item_name            | string     | null: false        |
+| description          | text       | null: false        |
+| category_id          | integer    | null: false        |
+| status_id            | integer    | null: false        |
+| delivery_charge_id   | integer    | null: false        |
+| area_id              | integer    | null: false        |
+| scheduled_days_id    | integer    | null: false        |
+| price                | integer     | null: false       |
+| user                 | references | foreign_key: true  |
 
 ### Association
 
