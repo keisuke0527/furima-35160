@@ -13,7 +13,7 @@
 | first_name         | string | null: false               |
 | last_name_kana     | string | null: false               |
 | first_name_kana    | string | null: false               |
-| birthday           | string | null: false               |
+| birthday           | date   | null: false               |
 
 
 ### Association
@@ -52,14 +52,14 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one  :residences
+- has_one  :residence
 
 ## residencesテーブル -----------------------------------------
 
 | Column             | Type       | Options            |
 | ------------------ | ---------- | ------------------ |
-| prefecture         | string     | null: false        |
-| prefecture         | string     | null: false        |
+| postal_code        | string     | null: false        |
+| area_id            | integer    | null: false        |
 | municipality       | string     | null: false        |
 | address            | string     | null: false        |
 | phone_number       | string     | null: false        |
