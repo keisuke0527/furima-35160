@@ -16,12 +16,12 @@ RSpec.describe User, type: :model do
       @user.password = '000000'
       @user.password_confirmation = '000000'
       @user.valid?
-      expect(@user.errors.full_messages)
+      expect(@user).to be_valid
     end
     it 'passwordは、半角英数字が混合されていれば、登録が可能なこと' do
       @user.password = "000aaa"
       @user.valid?
-      expect(@user.errors.full_messages)
+      expect(@user).to be_valid
     end
   end
     context '新規登録できないとき' do
@@ -98,8 +98,6 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Birthday can't be blank")
     end
-
-#追加分
 
     it 'emailは＠を含んでいないと登録できないこと' do
       @user.email = 'hogehuga.com'
