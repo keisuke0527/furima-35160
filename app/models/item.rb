@@ -2,13 +2,13 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :status
-  belongs_to :delivery
+  belongs_to :delivery_charge
   belongs_to :area
   belongs_to :scheduled_day
+  has_one_attached :image
 
   with_options presence: true do
   validates :item_name
-  validates :genre_id
   validates :description 
   validates :price
   end
@@ -20,3 +20,5 @@ class Item < ApplicationRecord
   validates :scheduled_day_id
 end
 end
+
+
