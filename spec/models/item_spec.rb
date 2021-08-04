@@ -74,7 +74,7 @@ RSpec.describe Item, type: :model do
       end
 
       it 'priceが¥300~¥9,999,999の間でないと登録できない' do
-        @item.price = '10'
+        @item.price = 10
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
@@ -83,6 +83,54 @@ RSpec.describe Item, type: :model do
         @item.price = '１２３４５'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Out of setting range')
+      end
+      it 'categoryが2以上でないと登録できない' do
+        @item.category_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
+      end
+      it 'statusが2以上でないと登録できない' do
+        @item.status_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Status must be other than 1')
+      end
+
+      it 'delivery_chargeが2以上でないと登録できない' do
+        @item.delivery_charge_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Delivery charge must be other than 1')
+      end
+
+      it 'areaが2以上でないと登録できない' do
+        @item.area_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Area must be other than 1')
+      end
+      it 'scheduled_dayが2以上でないと登録できない' do
+        @item.scheduled_day_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Scheduled day must be other than 1')
+      end
+      it 'priceが英字では登録できない' do
+        @item.price = 'aaaaa'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
+      end
+      it 'priceが英数字混合では保存できないこと' do
+        @item.price = 'aaa111'
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
+      end
+    
+      it 'priceが10000000以上の値では保存できないこと' do
+        @item.price = 100000000
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
+      end
+      it 'userが紐づいてないと登録できないこと' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
