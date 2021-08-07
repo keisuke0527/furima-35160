@@ -7,13 +7,7 @@ class Item < ApplicationRecord
   belongs_to :scheduled_day
   belongs_to :user
   has_one_attached :image
-  has_one :order
-
-  validates :content, presence: true, unless: :was_attached?
-
-  def was_attached?
-    self.image.attached?
-  end
+  #has_one :order
 
   with_options presence: true do
     validates :item_name
