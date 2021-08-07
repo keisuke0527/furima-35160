@@ -131,7 +131,7 @@
       <% @items.each do |item| %>
         <li class='list'>
          <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" %>
+          <%= link_to image_tag(item.image, class: "item-img"),item_path(item.id) %>
           <% if Order.exists?(item_id: [item.id]) %>
            <div class='sold-out'>
             <span>Sold Out!!</span>
@@ -140,10 +140,10 @@
          </div>
            <div class='item-info'>
              <h3 class='item-name'>
-             <%= item.item_name %>
+             <%= link_to item.item_name, item_path(item.id),class:"item-name" %>
           </h3>
           <div class='item-price'>
-            <span><%= item.price %>円<br><%= item.delivery_charge_id %></span>
+            <span><%= item.price %>円<br><%= item.delivery_charge#ここ修正 %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
