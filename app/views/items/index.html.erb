@@ -143,7 +143,7 @@
              <%= link_to item.item_name, item_path(item.id),class:"item-name" %>
           </h3>
           <div class='item-price'>
-            <span><%= item.price %>円<br><%= item.delivery_charge#ここ修正 %></span>
+            <span><%= item.price %>円<br><%= item.delivery_charge.name%></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>
