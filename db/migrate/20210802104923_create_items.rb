@@ -9,7 +9,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
     t.integer    :delivery_charge_id,   null: false        
     t.integer    :area_id,              null: false        
     t.integer    :scheduled_day_id,     null: false        
-    t.integer    :price,                 null: false    #型が違うかも   
+    t.integer    :price,                 null: false       
     t.references :user,                 foreign_key: true  
     t.timestamps
     end
