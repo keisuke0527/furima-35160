@@ -24,6 +24,10 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    if @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def update
@@ -52,7 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def contributor_confirmation
-    redirect_to root_path unless current_user ==  @item.user
+    redirect_to root_path unless current_user ==  @item.user 
   end
 
 end
