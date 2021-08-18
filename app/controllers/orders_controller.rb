@@ -1,18 +1,21 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  before_action :contributor_confirmation, only: [:index,:create]
 
   def index
     @item = Item.find(params[:item_id])
     @order_residence = OrderResidence.new  
-  end
+  end 
  
  
   def create
     @item = Item.find(params[:item_id])
     @order_residence = OrderResidence.new(residence_params)
+    
     if @order_residence.valid?
       pay_item
       @order_residence.save
-      redirect_to action: :index
+      redirect_to root_path
     else
       render :index
   end
@@ -31,6 +34,11 @@ class OrdersController < ApplicationController
     card: residence_params[:token],
     currency: 'jpy'                 
   )
+  end
+
+  def contributor_confirmation
+    @item = Item.find(params[:item_id])
+    redirect_to root_path unless current_user != @item.user 
   end
   
 end
