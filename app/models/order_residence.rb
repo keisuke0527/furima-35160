@@ -9,6 +9,7 @@ class OrderResidence
     validates :city
     validates :building_name
     validates :area_id, numericality: { other_than: 1 } 
+    validates :token
     end
 
 
