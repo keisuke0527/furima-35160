@@ -3,13 +3,11 @@ class OrdersController < ApplicationController
   before_action :contributor_confirmation, only: [:index,:create]
 
   def index
-    @item = Item.find(params[:item_id])
     @order_residence = OrderResidence.new  
   end 
  
  
   def create
-    @item = Item.find(params[:item_id])
     @order_residence = OrderResidence.new(residence_params)
     
     if @order_residence.valid?

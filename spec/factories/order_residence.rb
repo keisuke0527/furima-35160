@@ -7,8 +7,6 @@ FactoryBot.define do
     building_name    { 'ビルビル' }
     area_id          { 2 }
     token {"tok_abcdefghijk00000000000000000"}
-    user_id { FactoryBot.create(:user).id }
-    item_id { FactoryBot.create(:item).id }
   end
 end
 
