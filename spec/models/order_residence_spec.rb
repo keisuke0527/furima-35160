@@ -52,7 +52,7 @@ RSpec.describe OrderResidence, type: :model do
         expect(@order_residence.errors.full_messages).to include("Postal code is invalid")
       end
       it '電話番号は11桁以内の数値でないと登録できない' do
-        @order_residence.phone_number = '12345'
+        @order_residence.phone_number = '123451234512345'
         @order_residence.valid?
         expect(@order_residence.errors.full_messages).to include("Phone number is invalid")
       end
